@@ -6,7 +6,7 @@ You can fully customise and install these scripts to your /usr/bin directory usi
 
 *coming soon*
 
-<br>
+<hr>
 
 ### kbvis.py
 A customiseable audio visualiser that monitors audio output, calculates bass amplitude and then uses the keyboard backlight to let you experience your music on a whole new level.
