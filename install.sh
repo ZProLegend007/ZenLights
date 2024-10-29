@@ -32,7 +32,7 @@ sudo chmod +x /etc/zenlights/*.sh
 # Ask for touchpad backlight support installation
 while true; do
     echo "Do you want to install touchpad backlight support? (y/n)"
-    read yn
+    read -n 1 -p yn
     case $yn in
         [Yy]* )
             echo "Installing touchpad backlight support..."
