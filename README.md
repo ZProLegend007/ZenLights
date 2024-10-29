@@ -17,6 +17,7 @@ Using APT
 
 Adding touchpad backlight support (dance.sh, autobacklight.sh, spaz.sh): 
 Credit: (asus-linux-drivers)[https://github.com/asus-linux-drivers/asus-numberpad-driver]
+
 `git clone https://github.com/asus-linux-drivers/asus-numberpad-driver && cd asus-numberpad-driver && bash install.sh`
 
 <hr>
