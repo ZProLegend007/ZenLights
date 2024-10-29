@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 cat << "EOF"
   ______          _      _       _     _       
  |___  /         | |    (_)     | |   | |      
@@ -51,7 +52,7 @@ while true; do
             ;;
     esac
 done
-
+clear
 cat << "EOF"
   ______          _      _       _     _       
  |___  /         | |    (_)     | |   | |      
