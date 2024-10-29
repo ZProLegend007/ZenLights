@@ -45,9 +45,6 @@ while true; do
             echo "Skipping touchpad backlight support installation."
             break
             ;;
-        * )
-            echo "Please answer y or n."
-            ;;
     esac
 done
 
