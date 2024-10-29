@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Clear the terminal
+clear
+
+# Display cool ASCII text
+cat << "EOF"
+  ______          _      _       _     _       
+ |___  /         | |    (_)     | |   | |      
+    / / ___ _ __ | |     _  __ _| |__ | |_ ___ 
+   / / / _ \ '_ \| |    | |/ _` | '_ \| __/ __|
+  / /_|  __/ | | | |____| | (_| | | | | |_\__ \
+ /_____\___|_| |_|______|_|\__, |_| |_|\__|___/
+                            __/ |              
+                           |___/                   
+EOF
+
+# Function to display help
+show_help() {
+    echo "Usage: zenlights <script-name>"
+    echo ""
+    echo "Available scripts:"
+    echo "  dance         - Makes all available LEDs change to a random unique brightness setting on each keypress."
+    echo "  kbvis         - A customizable audio visualizer that monitors audio output and uses the keyboard backlight."
+    echo "  pulse         - Makes the keyboard backlight pulse on each keypress."
+    echo "  autobacklight - Triggers the keyboard and touchpad backlight to fade in on keypresses and fade out after a short time."
+    echo "  spaz          - Sets all backlights to a random value repetitively for 5 seconds."
+}
+
+# Check if an argument is provided
+if [ -z "$1" ]; then
+    show_help
+    exit 1
+fi
+
+# Define the script directory
+SCRIPT_DIR="/etc/zenlights"
+
+# Run the appropriate script
+case "$1" in
+    -h|--help)
+        show_help
+        ;;
+    dance)
+        bash "$SCRIPT_DIR/dance.sh"
+        ;;
+    kbvis)
+        python3 "$SCRIPT_DIR/kbvis.py"
+        ;;
+    pulse)
+        bash "$SCRIPT_DIR/pulse.sh"
+        ;;
+    autobacklight)
+        bash "$SCRIPT_DIR/autobacklight.sh"
+        ;;
+    spaz)
+        bash "$SCRIPT_DIR/spaz.sh"
+        ;;
+    *)
+        echo "Invalid script name: $1"
+        show_help
+        exit 1
+        ;;
+esac
