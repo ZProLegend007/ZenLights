@@ -2,10 +2,10 @@
 A collection of various random scripts designed to manipulate the controllable led backlights (not including display) on ZenBooks.
 
 ## Installation
-You can fully customise and install these scripts to your `/usr/bin` directory using the command below.
-
-*coming soon*
-
+You can fully customise and install these scripts to your `/usr/bin` directory using the command below **IN BETA - NOT WORKING YET**.
+```
+curl -sL https://raw.githubusercontent.com/ZProLegend007/ZenLights/main/install.sh | bash
+```
 Or just download the script you want and run it.
 
 
