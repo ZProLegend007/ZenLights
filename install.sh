@@ -29,10 +29,11 @@ sudo mv dance.sh kbvis.py pulse.sh autobacklight.sh spaz.sh /etc/zenlights/
 sudo chmod +x /etc/zenlights/*.sh
 
 # Ask for touchpad backlight support installation
-echo "Do you want to install touchpad backlight support?"
-select yn in "Yes" "No"; do
+while true; do
+    echo "Do you want to install touchpad backlight support? (y/n)"
+    read yn
     case $yn in
-        Yes )
+        [Yy]* )
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
@@ -41,9 +42,12 @@ select yn in "Yes" "No"; do
             rm -rf asus-numberpad-driver
             break
             ;;
-        No )
+        [Nn]* )
             echo "Skipping touchpad backlight support installation."
             break
+            ;;
+        * )
+            echo "Please answer y or n."
             ;;
     esac
 done
