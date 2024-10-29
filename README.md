@@ -13,17 +13,17 @@ Or just download the script you want and run it.
 
 These will be installed automatically installed using -script- but if you are just using one script then you need to install these with your chosen package manager:
 
-
-`sudo apt install brightnessctl evtest i2c-tools python3 python3-numpy python3-pyaudio python3-libevdev`
-
+```
+sudo apt install brightnessctl evtest i2c-tools python3 python3-numpy python3-pyaudio python3-libevdev
+```
 
 
 #### Adding touchpad backlight support (dance.sh, autobacklight.sh, spaz.sh): 
 
 Credit: [asus-linux-drivers](https://github.com/asus-linux-drivers/asus-numberpad-driver)
-
-`git clone https://github.com/asus-linux-drivers/asus-numberpad-driver && cd asus-numberpad-driver && bash install.sh`
-
+```
+git clone https://github.com/asus-linux-drivers/asus-numberpad-driver && cd asus-numberpad-driver && bash install.sh
+```
 <hr>
 
 ### kbvis.py
