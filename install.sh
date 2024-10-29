@@ -1,5 +1,14 @@
 #!/bin/bash
-
+cat << "EOF"
+  ______          _      _       _     _       
+ |___  /         | |    (_)     | |   | |      
+    / / ___ _ __ | |     _  __ _| |__ | |_ ___ 
+   / / / _ \ '_ \| |    | |/ _` | '_ \| __/ __|
+  / /_|  __/ | | | |____| | (_| | | | | |_\__ \
+ /_____\___|_| |_|______|_|\__, |_| |_|\__|___/
+                            __/ |              
+                           |___/                   
+EOF
 # Install necessary requirements
 echo "Installing requirements..."
 sudo apt install -y brightnessctl evtest i2c-tools python3 python3-numpy python3-pyaudio python3-libevdev git
