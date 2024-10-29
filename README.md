@@ -6,9 +6,23 @@ You can fully customise and install these scripts to your /usr/bin directory usi
 
 *coming soon*
 
+Or just download the script you want and run it.
+
+### Requirements
+
+These will be installed automatically installed using -script- but if you are just using one script then you need to install these:
+
+Using APT
+`sudo apt install brightnessctl evtest i2c-tools `
+
+Adding touchpad backlight support (dance.sh, autobacklight.sh, spaz.sh): 
+Credit: (asus-linux-drivers)[https://github.com/asus-linux-drivers/asus-numberpad-driver]
+`git clone https://github.com/asus-linux-drivers/asus-numberpad-driver && cd asus-numberpad-driver && bash install.sh`
+
 <hr>
 
 ### kbvis.py
+(in progress)
 A customiseable audio visualiser that monitors audio output, calculates bass amplitude and then uses the keyboard backlight to let you experience your music on a whole new level.
 
 ### pulse.sh
