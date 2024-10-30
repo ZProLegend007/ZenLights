@@ -18,7 +18,7 @@ EOF
 
 # Function to display help
 show_help() {
-    echo "Usage: zenlights <script-name>"
+    echo "Usage: zenlights <script-name>|-k|--kill"
     echo ""
     echo "Available scripts:"
     echo "  dance         - Makes all available LEDs change to a random unique brightness setting on each keypress."
@@ -26,6 +26,7 @@ show_help() {
     echo "  pulse         - Makes the keyboard backlight pulse on each keypress."
     echo "  autobacklight - Triggers the keyboard and touchpad backlight to fade in on keypresses and fade out after a short time."
     echo "  spaz          - Sets all backlights to a random value repetitively for 5 seconds."
+    echo "  -k|--kill     - Kills all running ZenLights scripts."
 }
 
 # Check if an argument is provided
@@ -41,6 +42,9 @@ SCRIPT_DIR="/etc/zenlights"
 case "$1" in
     -h|--help)
         show_help
+        ;;
+    -k|--kill)
+        pkill -f "$SCRIPT_DIR"
         ;;
     dance)
         bash "$SCRIPT_DIR/dance.sh"
