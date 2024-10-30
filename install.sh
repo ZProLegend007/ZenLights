@@ -37,7 +37,13 @@ while true; do
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
-            bash ./install.sh
+            # Run the second script and monitor output for "reboot" keyword
+            while IFS= read -r line; do
+                echo "$line"
+                if [[ "$line" =~ [Rr]eboot ]]; then
+                    break
+                fi
+            done < <(bash ./install.sh)
             cd ..
             rm -rf asus-numberpad-driver
             break
@@ -65,4 +71,4 @@ cat << "EOF"
                             __/ |              
                            |___/                   
 EOF
-echo "Installation complete."
+echo "Installation complete. ZenLights will be available after a reboot."
