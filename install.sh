@@ -69,6 +69,7 @@ cat << "EOF"
   / /_|  __/ | | | |____| | (_| | | | | |_\__ \
  /_____\___|_| |_|______|_|\__, |_| |_|\__|___/
                             __/ |              
-                           |___/                   
+                           |___/              
+                           
 EOF
 echo "Installation complete. ZenLights will be available after a reboot."
