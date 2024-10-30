@@ -51,6 +51,9 @@ while true; do
             ;;
     esac
 done
+cd ..
+rm -rf ZenLights
+rm install.sh
 # clear
 cat << "EOF"
   ______          _      _       _     _       
