@@ -1,6 +1,10 @@
 # ZenLights
 A collection of various random scripts designed to manipulate the controllable led backlights (not including display) on ZenBooks.
 
+The idea is that once you have installed the `zenlights` command (or just a script of your choice), you can set keyboard shortcuts to trigger specific scripts.
+
+For example, you could assign Ctrl+Alt+P to run the command `zenlights pulse` to activate the pulse effect on your keyboard. You could then assign Ctrl+Alt+Shift+P to run `zenlights -k` to kill the running script.
+
 ## Installation
 You can fully customise and install these scripts to your `/usr/local/bin` directory using the command below **IN BETA - NOT WORKING YET**.
 ```
@@ -11,7 +15,7 @@ Or just download the script you want and run it.
 
 ### Requirements
 
-These will be installed automatically installed using `install.sh` but if you are just using one script then you need to install these with your chosen package manager:
+The `zenlights` command will be installed automatically using `install.sh` but if you are just using one script then you need to install these with your chosen package manager:
 
 ```
 sudo apt install brightnessctl evtest i2c-tools python3 python3-numpy python3-pyaudio python3-libevdev
