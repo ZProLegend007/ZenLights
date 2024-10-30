@@ -38,13 +38,12 @@ while true; do
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
-
-            # Run the install script and monitor output for "reboot" keyword
-            bash ./install.sh | tee /dev/tty | while IFS= read -r line; do
+            # Use timeout with tee to capture and check output from install.sh for "reboot" keyword
+            timeout 600 bash ./install.sh | tee /dev/tty | while IFS= read -r line; do
+                echo "$line"
                 if [[ "$line" =~ [Rr]eboot ]]; then
-                    echo "Reboot prompt detected. Exiting the second script..."
-                    kill $!  # Stop the install script
-                    break
+                    echo "Reboot prompt detected. Exiting touchpad script..."
+                    break 2  # Exit both the inner loop and the while loop
                 fi
             done
 
