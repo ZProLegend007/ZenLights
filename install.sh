@@ -35,7 +35,8 @@ while true; do
     read -r yn
     case $yn in
         [Yy]* )
-        rex=$(cat << 'EOF'
+        rex=$(mktemp)
+        cat << 'EOF' > "$rex"
 echo
 
 read -r -p "Reboot is required. Do you want reboot now? [y/N]" response
@@ -51,7 +52,6 @@ echo
 
 exit 0
 EOF
-)
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
@@ -59,6 +59,7 @@ EOF
             bash ./install.sh
             cd ..
             rm -rf asus-numberpad-driver
+            rm "$rex"
             break
             ;;
         [Nn]* )
