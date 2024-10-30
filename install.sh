@@ -38,20 +38,23 @@ while true; do
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
-            # Use timeout with tee to capture and check output from install.sh for "reboot" keyword
-            coproc install_proc { bash ./install.sh; }
-
-            # Read from the coprocess output
-            while IFS= read -r line <&"${install_proc[0]}"; do
-                echo "$line" # Display each line as it is output
-
-                # Detect the reboot prompt and stop the coprocess if found
-                if [[ "$line" =~ [Rr]eboot ]]; then
-                    echo "Reboot prompt detected. Exiting the touchpad script..."
-                    kill "$install_proc_PID" # Terminate install.sh
-                    break
-                fi
-            done
+            spawn bash install.sh
+            # Monitor output and search for "reboot" prompt
+            expect {
+                -re "Reboot" {
+                    # When "reboot" prompt is detected, output message and exit
+                    send_user "\nReboot prompt detected. Exiting the touchpad script...\n"
+                    exit
+                }
+                eof {
+                    # End of file, the script finished
+                    exit
+                }
+                default {
+                    # Pass control to the user for any other interactions
+                    interact
+                }
+            }
 
             cd ..
             rm -rf asus-numberpad-driver
