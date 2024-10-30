@@ -8,7 +8,8 @@ cat << "EOF"
   / /_|  __/ | | | |____| | (_| | | | | |_\__ \
  /_____\___|_| |_|______|_|\__, |_| |_|\__|___/
                             __/ |              
-                           |___/                   
+                           |___/      
+                           
 EOF
 # Install necessary requirements
 echo "Installing requirements..."
