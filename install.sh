@@ -38,9 +38,13 @@ while true; do
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
             # Run the second script and monitor output for "reboot" keyword
+            last_line=""
             while IFS= read -r line; do
                 echo "$line"
+                last_line="$line"  # Store the last line in a variable
                 if [[ "$line" =~ [Rr]eboot ]]; then
+                    echo "Reboot prompt detected. Exiting the second script..."
+                    echo "Last output line: $last_line"  # Print the last line before exiting
                     break
                 fi
             done < <(bash ./install.sh)
@@ -69,7 +73,7 @@ cat << "EOF"
   / /_|  __/ | | | |____| | (_| | | | | |_\__ \
  /_____\___|_| |_|______|_|\__, |_| |_|\__|___/
                             __/ |              
-                           |___/              
+                           |___/      
                            
 EOF
-echo "Installation complete. ZenLights will be available after a reboot."
+echo "Installation complete."
