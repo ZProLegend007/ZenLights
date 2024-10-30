@@ -54,7 +54,7 @@ done
 cd ..
 sudo rm -rf ZenLights
 rm install.sh
-# clear
+clear
 cat << "EOF"
   ______          _      _       _     _       
  |___  /         | |    (_)     | |   | |      
