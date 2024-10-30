@@ -37,15 +37,16 @@ while true; do
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
-            # Run the second script and monitor output for "reboot" keyword
-            last_line=""
-            while IFS= read -r line; do
-                echo "$line"
-                last_line="$line"  # Store the last line in a variable
-                if [[ "$line" =~ [Rr]eboot ]]; then
-                    break
-                fi
-            done < <(bash ./install.sh)
+            # Use expect to handle the install.sh interaction
+            expect << EOF
+            spawn bash ./install.sh
+            expect {
+                -re "(reboot|Reboot)" {
+                    exit
+                }
+                eof
+            }
+EOF
             cd ..
             rm -rf asus-numberpad-driver
             break
@@ -71,7 +72,7 @@ cat << "EOF"
   / /_|  __/ | | | |____| | (_| | | | | |_\__ \
  /_____\___|_| |_|______|_|\__, |_| |_|\__|___/
                             __/ |              
-                           |___/      
+                           |___/   
                            
 EOF
 echo "Installation complete."
