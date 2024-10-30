@@ -4,7 +4,7 @@ A collection of various random scripts designed to manipulate the controllable l
 ## Installation
 You can fully customise and install these scripts to your `/usr/local/bin` directory using the command below **IN BETA - NOT WORKING YET**.
 ```
-curl -sL https://raw.githubusercontent.com/ZProLegend007/ZenLights/main/install.sh | sudo bash
+wget -q https://raw.githubusercontent.com/ZProLegend007/ZenLights/main/install.sh && sudo bash install.sh
 ```
 Or just download the script you want and run it.
 
