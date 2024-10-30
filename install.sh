@@ -55,7 +55,7 @@ EOF
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
-            grep -v -F -x $rex install.sh > temp && mv temp install.sh
+            grep -v -F -x "$rex" install.sh > temp && mv temp install.sh
             bash ./install.sh
             cd ..
             rm -rf asus-numberpad-driver
