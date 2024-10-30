@@ -53,7 +53,7 @@ while true; do
     esac
 done
 cd ..
-rm -rf ZenLights
+sudo rm -rf ZenLights
 rm install.sh
 # clear
 cat << "EOF"
