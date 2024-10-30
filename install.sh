@@ -37,7 +37,7 @@ while true; do
         [Yy]* )
             echo "Installing touchpad backlight support..."
             cd asus-numberpad-driver
-            sudo bash ./install.sh
+            bash ./install.sh
             cd ..
             rm -rf asus-numberpad-driver
             break
