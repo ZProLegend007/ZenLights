@@ -51,7 +51,7 @@ while true; do
             ;;
     esac
 done
-clear
+# clear
 cat << "EOF"
   ______          _      _       _     _       
  |___  /         | |    (_)     | |   | |      
