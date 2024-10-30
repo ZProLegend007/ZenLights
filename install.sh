@@ -35,27 +35,28 @@ while true; do
     read -r yn
     case $yn in
         [Yy]* )
+        rex=$(cat << 'EOF'
+echo
+
+read -r -p "Reboot is required. Do you want reboot now? [y/N]" response
+case "$response" in
+    [yY][eE][sS]|[yY])
+        sudo /sbin/reboot
+        ;;
+    *)
+        ;;
+esac
+
+echo
+
+exit 0
+EOF
+)
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
-            spawn bash install.sh
-            # Monitor output and search for "reboot" prompt
-            expect {
-                -re "Reboot" {
-                    # When "reboot" prompt is detected, output message and exit
-                    send_user "\nReboot prompt detected. Exiting the touchpad script...\n"
-                    exit
-                }
-                eof {
-                    # End of file, the script finished
-                    exit
-                }
-                default {
-                    # Pass control to the user for any other interactions
-                    interact
-                }
-            }
-
+            grep -v -F -x $rex install.sh > temp && mv temp install.sh
+            bash ./install.sh
             cd ..
             rm -rf asus-numberpad-driver
             break
