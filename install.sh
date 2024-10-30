@@ -43,8 +43,6 @@ while true; do
                 echo "$line"
                 last_line="$line"  # Store the last line in a variable
                 if [[ "$line" =~ [Rr]eboot ]]; then
-                    echo "Reboot prompt detected. Exiting the second script..."
-                    echo "Last output line: $last_line"  # Print the last line before exiting
                     break
                 fi
             done < <(bash ./install.sh)
