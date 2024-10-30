@@ -36,9 +36,8 @@ while true; do
     case $yn in
         [Yy]* )
             echo "Installing touchpad backlight support..."
-            git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
-            bash install.sh
+            sudo bash ./install.sh
             cd ..
             rm -rf asus-numberpad-driver
             break
