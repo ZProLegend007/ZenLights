@@ -52,12 +52,11 @@ while true; do
 
     exit 0
 
-
 EOF
             clear
             echo "Installing touchpad backlight support..."
             echo "Thanks to the team at asus-linux-drivers."
-            sleep 3
+            sleep 2
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
             grep -v -F -x -f $rex install.sh > temp && mv temp install.sh
