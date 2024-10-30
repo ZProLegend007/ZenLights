@@ -75,4 +75,4 @@ cat << "EOF"
                            |___/   
                            
 EOF
-echo "Installation complete."
+echo "Installation complete. ZenLights will be available after a reboot."
