@@ -52,7 +52,10 @@ echo
 
 exit 0
 EOF
+            clear
             echo "Installing touchpad backlight support..."
+            echo "Thanks to the team at asus-linux-drivers."
+            sleep 3
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
             grep -v -F -x -f $rex install.sh > temp && mv temp install.sh
@@ -74,7 +77,7 @@ done
 cd ..
 sudo rm -rf ZenLights
 rm install.sh
-#clear
+clear
 cat << "EOF"
   ______          _      _       _     _       
  |___  /         | |    (_)     | |   | |      
