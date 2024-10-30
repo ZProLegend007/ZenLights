@@ -37,16 +37,16 @@ while true; do
             echo "Installing touchpad backlight support..."
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
-            # Use expect to handle the install.sh interaction
-            expect << EOF
-            spawn bash ./install.sh
-            expect {
-                -re "(reboot|Reboot)" {
-                    exit
-                }
-                eof
-            }
-EOF
+
+            # Run the install script and monitor output for "reboot" keyword
+            bash ./install.sh | tee /dev/tty | while IFS= read -r line; do
+                if [[ "$line" =~ [Rr]eboot ]]; then
+                    echo "Reboot prompt detected. Exiting the second script..."
+                    kill $!  # Stop the install script
+                    break
+                fi
+            done
+
             cd ..
             rm -rf asus-numberpad-driver
             break
