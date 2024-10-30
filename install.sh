@@ -39,11 +39,17 @@ while true; do
             git clone https://github.com/asus-linux-drivers/asus-numberpad-driver
             cd asus-numberpad-driver
             # Use timeout with tee to capture and check output from install.sh for "reboot" keyword
-            timeout 60000 bash ./install.sh | tee /dev/tty | while IFS= read -r line; do
-                echo "$line"
+            coproc install_proc { bash ./install.sh; }
+
+            # Read from the coprocess output
+            while IFS= read -r line <&"${install_proc[0]}"; do
+                echo "$line" # Display each line as it is output
+
+                # Detect the reboot prompt and stop the coprocess if found
                 if [[ "$line" =~ [Rr]eboot ]]; then
-                    echo "Reboot prompt detected. Exiting touchpad script..."
-                    break 2  # Exit both the inner loop and the while loop
+                    echo "Reboot prompt detected. Exiting the touchpad script..."
+                    kill "$install_proc_PID" # Terminate install.sh
+                    break
                 fi
             done
 
