@@ -6,12 +6,13 @@ The idea is that once you have installed the `zenlights` command (or just a scri
 For example, you could assign Ctrl+Alt+P to run the command `zenlights pulse` to activate the pulse effect on your keyboard. You could then assign Ctrl+Alt+Shift+P to run `zenlights -k` to kill the running script.
 
 ## Installation
-You can fully customise and install these scripts to your `/usr/local/bin` directory using the command below **IN BETA - NOT WORKING YET**.
+You  can easily install ZenLights using the command below.
 ```
 wget -q https://raw.githubusercontent.com/ZProLegend007/ZenLights/main/install.sh && bash install.sh
 ```
-Or just download the script you want and run it.
+This will install the `zenlights` command to your `/usr/local/bin` directory for easy usage and the scripts will be installed to `/etc/ZenLights` where they can be called upon by the main command when needed.
 
+Or just download the script you want and run it.
 
 ### Requirements
 
