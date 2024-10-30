@@ -10,7 +10,7 @@ You  can easily install ZenLights using the command below.
 ```
 wget -q https://raw.githubusercontent.com/ZProLegend007/ZenLights/main/install.sh && bash install.sh
 ```
-This will install the `zenlights` command to your `/usr/local/bin` directory for easy usage and the scripts will be installed to `/etc/ZenLights` where they can be called upon by the main command when needed.
+This will install the `zenlights` command to your `/usr/local/bin` directory for easy usage and the scripts will be installed to `/etc/zenlights` where they can be called upon by the main command when needed.
 
 Or just download the script you want and run it.
 
