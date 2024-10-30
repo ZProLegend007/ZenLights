@@ -37,20 +37,22 @@ while true; do
         [Yy]* )
         rex=$(mktemp)
         cat << 'EOF' > "$rex"
-echo
 
-read -r -p "Reboot is required. Do you want reboot now? [y/N]" response
-case "$response" in
-    [yY][eE][sS]|[yY])
+    echo
+
+    read -r -p "Reboot is required. Do you want reboot now? [y/N]" response
+    case "$response" in [yY][eE][sS]|[yY])
         sudo /sbin/reboot
         ;;
     *)
         ;;
-esac
+    esac
 
-echo
+    echo
 
-exit 0
+    exit 0
+
+
 EOF
             clear
             echo "Installing touchpad backlight support..."
