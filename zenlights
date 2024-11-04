@@ -50,7 +50,7 @@ case "$1" in
         bash "$SCRIPT_DIR/dance.sh"
         ;;
     kbvis)
-        python3 "$SCRIPT_DIR/kbvis.py"
+        ./"$SCRIPT_DIR/kbvis"
         ;;
     pulse)
         bash "$SCRIPT_DIR/pulse.sh"
