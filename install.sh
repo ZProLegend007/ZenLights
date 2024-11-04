@@ -27,8 +27,8 @@ sudo mkdir -p /etc/zenlights
 echo "Moving scripts..."
 sudo mv zenlights /usr/local/bin/
 sudo chmod +x /usr/local/bin/zenlights
-sudo mv dance.sh kbvis.py pulse.sh autobacklight.sh spaz.sh /etc/zenlights/
-sudo chmod +x /etc/zenlights/*.sh
+sudo mv dance.sh kbvis pulse.sh autobacklight.sh spaz.sh /etc/zenlights/
+sudo chmod +x /etc/zenlights/*
 # Ask for touchpad backlight support installation
 while true; do
     echo "Do you want to install touchpad backlight support? (y/n)"
