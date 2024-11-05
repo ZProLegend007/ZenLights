@@ -31,9 +31,9 @@ git clone https://github.com/asus-linux-drivers/asus-numberpad-driver && cd asus
 ```
 <hr>
 
-### kbvis.py
+### kbvis
 (in progress)
-A customiseable audio visualiser that monitors audio output, calculates bass amplitude and then uses the keyboard backlight to let you experience your music on a whole new level.
+A customiseable audio visualiser written in rust that monitors audio output, calculates bass amplitude and then uses the keyboard backlight to let you experience your music on a whole new level.
 
 ### pulse.sh
 A nice smooth script that makes the keyboard backlight pulse on each keypress.
